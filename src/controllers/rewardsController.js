@@ -15,7 +15,7 @@ exports.claimReward = async (req, res) => {
       return res.status(400).json({ error: "No rewards available" });
     }
 
-    const tx = await rewardContract.claimReward({ from: user.walletAddress });
+    const tx = await rewardContract.claimRewardFor(user.walletAddress);
     await tx.wait();
 
     const reward = new Reward({

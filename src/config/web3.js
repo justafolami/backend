@@ -62,8 +62,14 @@ const distributorABI = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "claimReward",
+    inputs: [
+      {
+        internalType: "address",
+        name: "user",
+        type: "address",
+      },
+    ],
+    name: "claimRewardFor",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
