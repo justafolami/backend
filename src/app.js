@@ -19,9 +19,9 @@ app.use(
   })
 );
 app.use(rateLimiter);
-app.use("/api/auth", authRoutes);
-app.use("/api/steps", stepsRoutes);
-app.use("/api/rewards", rewardRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/steps", stepsRoutes);
+app.use("/api/v1/rewards", rewardRoutes);
 
 app.get("/api/v1/health", (req, res) => {
   res.status(200).json({ success: true, message: "Server is working!" });
