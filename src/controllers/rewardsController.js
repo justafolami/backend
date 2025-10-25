@@ -7,14 +7,6 @@ exports.claimReward = async (req, res) => {
     const userId = req.userId;
     const user = await User.findById(userId);
 
-    const pendingReward = await rewardContract.getPendingReward(
-      user.walletAddress
-    );
-
-    if (pendingReward.toString() === "0") {
-      return res.status(400).json({ error: "No rewards available" });
-    }
-
     const tx = await rewardContract.claimRewardFor(user.walletAddress);
     await tx.wait();
 
